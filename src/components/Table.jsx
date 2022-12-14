@@ -26,6 +26,11 @@ export default function index() {
       key: 'address',
     },
     {
+      title: "Number",
+      dataIndex: 'phone',
+      key: 'phone'
+    },
+    {
       title: 'Action',
       key: 'action',
       render: (_, record) => (
