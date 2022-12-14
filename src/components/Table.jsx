@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { getAll } from '../services';
+import { deleteUser, getAll } from '../services';
 import { request } from '../services/request.js';
 import { Space, Table, Button, Card, Skeleton } from 'antd';
 import { Header } from 'antd/es/layout/layout';
-import { useHistory } from 'react-router-dom';
 
 export default function index() {
-  const history = useHistory();
   const [users, setUsers] = useState([]);
   const [loader, setLoader] = useState(true);
 
@@ -39,7 +37,13 @@ export default function index() {
           >
             Edit
           </a>
-          <a>Delete</a>
+          <a
+            onClick={() => {
+              onDelete(record.id);
+            }}
+          >
+            Delete
+          </a>
         </Space>
       ),
     },
@@ -57,6 +61,17 @@ export default function index() {
           setLoader(false);
         });
     });
+  };
+
+  const onDelete = (id) => {
+    setLoader(true);
+    request(deleteUser(id))
+      .then((res) => {
+        getAllUsers();
+      })
+      .finally(() => {
+        setLoader(false);
+      });
   };
 
   useEffect(() => {
@@ -80,8 +95,8 @@ export default function index() {
           <div className='header'>
             <h1>Users</h1>
             <Button
+              onClick={() => window.location.replace('/users/create')}
               type='primary'
-              onClick={() => history.push('/users/create')}
             >
               Add User
             </Button>

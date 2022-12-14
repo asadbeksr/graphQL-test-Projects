@@ -45,3 +45,11 @@ mutation userMutation {
 }
 `;
 
+export const deleteUser = (id) => `
+mutation delte {
+  removeUser(id: ${id}) {
+    id
+  }
+}
+`
+

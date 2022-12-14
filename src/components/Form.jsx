@@ -30,7 +30,7 @@ export default function UserForm() {
     let selectedAction = id !== 'create' ? update : create;
     request(selectedAction(values, id))
       .then((res) => {
-        history.push('/');
+        window.location.replace('/');
       })
       .catch((err) => {});
   };
@@ -50,7 +50,7 @@ export default function UserForm() {
     <Card
       title={
         <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
-          <LeftOutlined onClick={() => history.goBack()} />
+          <LeftOutlined onClick={() => window.location.replace('/')} />
           Form
         </div>
       }
