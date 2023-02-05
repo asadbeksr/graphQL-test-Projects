@@ -18,7 +18,7 @@ module.exports = {
       id: 3,
       name: 'Jack',
       age: '35',
-      address: 'Paris',
+      address: 'Tashkent',
       phone: '1234567890',
     },
     {
