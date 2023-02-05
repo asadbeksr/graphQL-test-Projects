@@ -1,6 +1,6 @@
 # graphQL-test-Projects 
 
-React, ANT
+Tech: React, ANT
 
 ```
 yarn 
