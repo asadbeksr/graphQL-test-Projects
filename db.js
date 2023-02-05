@@ -26,7 +26,7 @@ module.exports = {
       name: 'Jill',
       age: '40',
       address: 'Tokyo',
-      phone: '0987654321',
+      phone: '0987654321q',
     },
   ],
 };
